@@ -446,13 +446,20 @@
 
     .hero-inner {
       display: grid;
-      grid-template-columns: 1fr 380px;
+      grid-template-columns: 1fr 420px;
       gap: 72px;
-      align-items: center;
+      align-items: flex-start;
       position: relative;
       z-index: 1;
       width: 100%;
       animation: fadeInUp 0.8s ease 0.2s both;
+    }
+
+    .hero-inner>div:last-child {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: stretch;
     }
 
     @keyframes fadeInUp {
@@ -661,6 +668,47 @@
     .hero-panel:hover {
       box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
       transform: translateY(-4px);
+    }
+
+    /* Profile Image */
+    .profile-image {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 24px;
+      overflow: hidden;
+      display: block;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s backwards;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15),
+        0 8px 24px rgba(0, 0, 0, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      position: relative;
+      background: linear-gradient(135deg, var(--surface2) 0%, var(--surface) 100%);
+    }
+
+    .profile-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.05) 100%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .profile-image:hover {
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.20),
+        0 12px 32px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transform: translateY(-12px);
+      border-color: var(--ac);
+    }
+
+    .profile-image:hover::before {
+      opacity: 1;
     }
 
     @keyframes slideInRight {
@@ -1592,9 +1640,25 @@
         display: none;
       }
 
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 44px;
+        align-items: center;
+      }
+
+      .hero-inner>div:last-child {
+        gap: 24px;
+      }
+
       .hero-panel {
         width: 100%;
-        margin-top: 20px;
+      }
+
+      .profile-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 4;
+        max-width: 100%;
       }
 
       .skills-grid {
@@ -1838,44 +1902,49 @@
           <div class="hero-surname rv d1">Molla</div>
           <div class="hero-rule rv d2"></div>
           <p class="hero-bio rv d2">
-            Results oriented professional with experience in operations management, recruitment coordination and
-            business analysis.<strong> 2+ years across ERP systems, OTA platforms, agile product
-              teams, Health-tech, Ed-Tech Operations &amp; People Management </strong>
-          </p>
+            Results-oriented professional with experience in <strong>Product, Recruitment Coordination, Business,
+              Operations, and Management roles. 2+ years working with ERP systems, OTA platforms, agile product teams,
+              Health-tech, Ed-Tech Operations and People Management.</strong></p>
           <div class="hero-actions rv d3">
             <button class="btn-fill" onclick="go('contact')">Get in touch</button>
             <button class="btn-line" onclick="go('projects')">View projects</button>
           </div>
         </div>
 
-        <div class="hero-panel rv d2">
-          <div class="panel-bar">
-            <span class="panel-label">Overview</span>
-            <div class="panel-dots">
-              <div class="pdot" style="background:#e05c5c"></div>
-              <div class="pdot" style="background:#e0c05c;margin-left:5px;"></div>
-              <div class="pdot" style="background:#5cc87a;margin-left:5px;"></div>
+        <div>
+          <img class="profile-image rv d2" src="images/profile.jpg" alt="Md. Tahsin Islam Molla" />
+
+          <div class="hero-panel rv d2">
+            <div class="panel-bar">
+              <span class="panel-label">Overview</span>
+              <div class="panel-dots">
+                <div class="pdot" style="background:#e05c5c"></div>
+                <div class="pdot" style="background:#e0c05c;margin-left:5px;"></div>
+                <div class="pdot" style="background:#5cc87a;margin-left:5px;"></div>
+              </div>
             </div>
-          </div>
-          <div class="stat-rows">
-            <div class="stat-r"><span class="stat-label">Years of experience</span><span class="stat-value">2+</span>
+            <div class="stat-rows">
+              <div class="stat-r"><span class="stat-label">Years of experience</span><span class="stat-value">2+</span>
+              </div>
+              <div class="stat-r"><span class="stat-label">Students managed</span><span class="stat-value">2K+</span>
+              </div>
+              <div class="stat-r"><span class="stat-label">OTA platforms worked on</span><span
+                  class="stat-value">5</span>
+              </div>
+              <div class="stat-r"><span class="stat-label">IEEE publications</span><span class="stat-value">2</span>
+              </div>
             </div>
-            <div class="stat-r"><span class="stat-label">Students managed</span><span class="stat-value">2K+</span>
-            </div>
-            <div class="stat-r"><span class="stat-label">OTA platforms worked on</span><span class="stat-value">5</span>
-            </div>
-            <div class="stat-r"><span class="stat-label">IEEE publications</span><span class="stat-value">2</span></div>
-          </div>
-          <div class="panel-footer">
-            <div class="pf-label">Core stack</div>
-            <div class="tag-row">
-              <span class="tag">Project Management</span><span class="tag">Jira</span>
-              <span class="tag">Excel, Power BI & Data Analysis</span>
-              <span class="tag">Team Coordination and Process Optimization</span>
-              <span class="tag">Cross-functional Collaboration</span><span class="tag">Agile</span>
-              <span class="tag">Talent Sourcing & Recruitment Coordination</span>
-              <span class="tag">Stakeholder Communication & Operations Management</span>
-              <span class="tag">People Management</span>
+            <div class="panel-footer">
+              <div class="pf-label">Core stack</div>
+              <div class="tag-row">
+                <span class="tag">Project Management</span><span class="tag">Jira</span>
+                <span class="tag">Excel, Power BI & Data Analysis</span>
+                <span class="tag">Team Coordination and Process Optimization</span>
+                <span class="tag">Cross-functional Collaboration</span><span class="tag">Agile</span>
+                <span class="tag">Talent Sourcing & Recruitment Coordination</span>
+                <span class="tag">Stakeholder Communication & Operations Management</span>
+                <span class="tag">People Management</span>
+              </div>
             </div>
           </div>
         </div>
@@ -1899,10 +1968,14 @@
             <div class="exp-role">Business Analyst</div>
             <div class="exp-company">TechnoNext - US-Bangla Group · Dhaka</div>
             <ul class="exp-points">
-              <li>Analyzed and documented business requirements for ERP and 5 OTA platforms in B2B and B2C channels,
-                ensuring clear and structured SRS delivery</li>
-              <li>Utilized Figma and Lovable for UI flows and module comparison; Excel for configuration mapping and
-                RTM; Jira and PMS for sprint tracking</li>
+              <li>
+                Analyzed business requirements, prepared SRS and documentation for ERP and 5 OTA platforms across B2B
+                and
+                B2C channels, ensuring clear documentation and structured Project Management.
+              </li>
+              <li>Used Figma and Lovable for UI flows, Excel for configuration mapping and RTM, Jira and PMS for task
+                tracking and
+                project workflows</li>
               <li>Bridged business and technical teams through stakeholder meetings, QA handover documentation, and
                 Agile sprint collaboration</li>
             </ul>
@@ -1928,9 +2001,6 @@
           </div>
         </div>
         <div class="exp-item">
-
-
-
           <img src="images/square-logo.png" alt="SQUARE Health" class="company-logo-img" />
           <div class="exp-meta">
             <div class="exp-period">Oct 2024 -Dec 2024</div>
@@ -1955,38 +2025,49 @@
         <div class="sec-divider"></div>
       </div>
       <div class="projects-grid">
-        <div class="project">
-          <div class="proj-num">01</div>
-          <div>
-            <div class="proj-name">PharmaSight-Map</div>
-            <div class="proj-desc">Interactive map displaying medicine details and real-time pricing via API integration
-              for accessible pharmaceutical discovery.</div>
-            <div class="proj-tags"><span class="proj-tag">Angular 18</span><span class="proj-tag">TypeScript</span><span
-                class="proj-tag">Bootstrap</span><span class="proj-tag">REST API</span></div>
+        <a href="https://github.com/tahsinturag/Map-Leaflet" target="_blank">
+          <div class="project">
+            <div class="proj-num">01</div>
+            <div>
+              <div class="proj-name">PharmaSight-Map</div>
+              <div class="proj-desc">Interactive map displaying medicine details and real-time pricing via API
+                integration
+                for accessible pharmaceutical discovery.</div>
+              <div class="proj-tags"><span class="proj-tag">Angular 18</span><span
+                  class="proj-tag">TypeScript</span><span class="proj-tag">Bootstrap</span><span class="proj-tag">REST
+                  API</span></div>
+            </div>
+            <div class="proj-arrow">↗</div>
           </div>
-          <div class="proj-arrow">↗</div>
-        </div>
-        <div class="project">
-          <div class="proj-num">02</div>
-          <div>
-            <div class="proj-name">Wheel on the GO - RentBuddy</div>
-            <div class="proj-desc">Full-stack vehicle rental platform with booking management, user authentication, and
-              complete rental workflow.</div>
-            <div class="proj-tags"><span class="proj-tag">JavaScript</span><span class="proj-tag">C#</span><span
-                class="proj-tag">ASP.NET MVC</span><span class="proj-tag">MSSQL</span></div>
+        </a>
+        <a href="https://github.com/tahsinturag/Wheel-on-the-GO-RentBuddy" target="_blank">
+          <div class="project">
+            <div class="proj-num">02</div>
+            <div>
+              <div class="proj-name">Wheel on the GO - RentBuddy</div>
+              <div class="proj-desc">Full-stack vehicle rental platform with booking management, user authentication,
+                and
+                complete rental workflow.</div>
+              <div class="proj-tags"><span class="proj-tag">JavaScript</span><span class="proj-tag">C#</span><span
+                  class="proj-tag">ASP.NET MVC</span><span class="proj-tag">MSSQL</span></div>
+            </div>
+            <div class="proj-arrow">↗</div>
           </div>
-          <div class="proj-arrow">↗</div>
-        </div>
-        <div class="project">
-          <div class="proj-num">03</div>
-          <div>
-            <div class="proj-name">Medcure</div>
-            <div class="proj-desc">Pharmacy management system for inventory control, sales tracking, and operational
-              reporting.</div>
-            <div class="proj-tags"><span class="proj-tag">Java</span><span class="proj-tag">Microsoft SQL</span></div>
+        </a>
+        <a href="https://github.com/tahsinturag/MedCure-PharmacyManagementSystem-using-JAVA" target="_blank">
+          <div class="project">
+            <div class="proj-num">03</div>
+            <div>
+              <div class="proj-name">Medcure</div>
+              <div class="proj-desc">Pharmacy management system for inventory control, sales tracking, and
+                operational
+                reporting.</div>
+              <div class="proj-tags"><span class="proj-tag">Java</span><span class="proj-tag">Microsoft SQL</span>
+              </div>
+            </div>
+            <div class="proj-arrow">↗</div>
           </div>
-          <div class="proj-arrow">↗</div>
-        </div>
+        </a>
       </div>
     </section>
 
@@ -2076,7 +2157,7 @@
               Control</div>
             <div class="research-meta"><span>2024</span> · IEEE · Peer-reviewed</div>
           </div>
-          <a class="research-link" href="#" target="_blank">View ↗</a>
+          <a class="research-link" href="https://ieeexplore.ieee.org/document/11021910" target="_blank">View ↗</a>
         </div>
       </div>
     </section>
@@ -2133,8 +2214,13 @@
       <div class="contact-layout">
         <div>
           <div class="contact-headline">Let's build something <em>meaningful</em> together.</div>
-          <p class="contact-sub">Open to Product Analyst, Technical Business Analyst, Product Manager, Senior Executive,
-            and People Management roles. Based in Dhaka, Bangladesh - open to remote and hybrid arrangements.</p>
+          <p class="contact-sub">Open to opportunities in <em><b>Product, Business and Management roles</b></em>- such
+            as "Associate
+            Product Manager, Associate Project Manager, Product Analyst,
+            Business Analyst, Senior
+            Executive,
+            and People Management" roles. Based in Dhaka, Bangladesh. Open to Full time, remote and hybrid arrangements.
+          </p>
           <div class="contact-note">
             <strong>Open to work</strong>
             Actively seeking opportunities where I can utilize my expertise in business analysis, product thinking,
@@ -2187,9 +2273,10 @@
       </div>
       <div class="avail-heading">Open to the <em>right opportunity</em></div>
       <div class="avail-roles">
+        <span class="avail-role">Associate Product Manager</span>
+        <span class="avail-role">Associate Project Manager</span>
         <span class="avail-role">Product Analyst</span>
         <span class="avail-role">Technical Business Analyst</span>
-        <span class="avail-role">Product Manager</span>
         <span class="avail-role">Senior Executive</span>
         <span class="avail-role">Talent Sourcing &amp; People Management</span>
       </div>
@@ -2199,7 +2286,7 @@
   <footer>
     <div class="footer-inner">
       <span class="footer-sig">Md. Tahsin Islam Molla</span>
-      <span class="footer-meta">Mohakhali · Dhaka, Bangladesh · 2026</span>
+      <span class="footer-meta">tahsinturag10@gmail.com · Dhaka, Bangladesh · 2026</span>
     </div>
   </footer>
 
