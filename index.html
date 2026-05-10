@@ -2442,11 +2442,11 @@
   <div class="progress-bar" id="progressBar"></div>
 
   <div class="theme-panel" role="navigation" aria-label="Theme switcher">
-    <button class="t-btn active" data-t="forest" onclick="setTheme('forest')" aria-label="Forest theme"><span
+    <button class="t-btn" data-t="forest" onclick="setTheme('forest')" aria-label="Forest theme"><span
         class="t-tip">Forest</span></button>
     <button class="t-btn" data-t="light" onclick="setTheme('light')" aria-label="Light theme"><span
         class="t-tip">Light</span></button>
-    <button class="t-btn" data-t="dark" onclick="setTheme('dark')" aria-label="Dark theme"><span
+    <button class="t-btn active" data-t="dark" onclick="setTheme('dark')" aria-label="Dark theme"><span
         class="t-tip">Dark</span></button>
     <button class="t-btn" data-t="slate" onclick="setTheme('slate')" aria-label="Slate theme"><span
         class="t-tip">Slate</span></button>
@@ -2951,8 +2951,7 @@
       try { localStorage.setItem('ptf-theme', t); } catch (e) { }
     }
     (function () {
-      try { const s = localStorage.getItem('ptf-theme'); if (s) setTheme(s); else setTheme('forest'); }
-      catch (e) { setTheme('forest'); }
+      setTheme('dark');
     })();
     function go(id) {
       const el = document.getElementById(id);
