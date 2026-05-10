@@ -2397,6 +2397,43 @@
         position: sticky;
       }
     }
+
+
+    /* VISIBILITY FIXES: keep palette visible on desktop and make mobile headings readable */
+    @media (min-width: 769px) {
+      .theme-panel {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        z-index: 2000;
+        right: 18px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-heading,
+      .sec-title,
+      .contact-headline {
+        background: none !important;
+        -webkit-background-clip: initial !important;
+        background-clip: initial !important;
+        -webkit-text-fill-color: var(--ink) !important;
+        color: var(--ink) !important;
+        text-shadow: none !important;
+      }
+
+      .hero-heading em,
+      .contact-headline em {
+        -webkit-text-fill-color: var(--ac) !important;
+        color: var(--ac) !important;
+      }
+
+      .hero-surname {
+        color: var(--ink) !important;
+        -webkit-text-fill-color: var(--ink) !important;
+      }
+    }
+
   </style>
 </head>
 
