@@ -1008,6 +1008,79 @@
       opacity: 0.5;
     }
 
+
+    /* RECRUITER VALUE */
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .value-card {
+      background: linear-gradient(135deg, var(--surface) 0%, rgba(0, 0, 0, 0.02) 100%);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 30px 28px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--ac), var(--ac2));
+      opacity: 0.75;
+    }
+
+    .value-card:hover {
+      border-color: var(--acb);
+      background: linear-gradient(135deg, var(--surface) 0%, var(--acl) 100%);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .value-kicker {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: var(--ac);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .value-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .value-text {
+      font-size: 14.5px;
+      color: var(--ink2);
+      line-height: 1.75;
+    }
+
+    .value-highlight {
+      margin-top: 18px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: var(--teal);
+      background: var(--tll);
+      border: 1px solid rgba(29, 110, 88, 0.14);
+      border-radius: 100px;
+      padding: 6px 12px;
+      display: inline-flex;
+    }
+
     /* PROJECTS */
     .projects-grid {
       display: grid;
@@ -1653,6 +1726,10 @@
 
       .skills-grid {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .value-grid {
+        grid-template-columns: 1fr;
       }
 
       .exp-item {
@@ -2348,6 +2425,7 @@
       </div>
       <div class="nav-links" id="navLinks">
         <a onclick="go('experience'); closeMenu()">Experience</a>
+        <a onclick="go('extra-curricular'); closeMenu()">Activities</a>
         <a onclick="go('projects'); closeMenu()">Projects</a>
         <a onclick="go('skills'); closeMenu()">Skills</a>
         <a onclick="go('research'); closeMenu()">Research</a>
@@ -2375,18 +2453,18 @@
           <div class="hero-surname rv d1">Molla</div>
           <div class="hero-rule rv d2"></div>
           <p class="hero-bio rv d2">
-            Results-oriented professional with experience in <strong>Product, Recruitment Coordination, Business,
-              Operations, and Management roles. 2+ years working with ERP systems, OTA platforms, agile product teams,
-              Health-tech, Ed-Tech Operations and People Management.</strong></p>
+            <strong>Business Analyst &amp; Product Operations professional</strong> with nearly 2 years of experience across ERP,
+            OTA, EdTech, and HealthTech platforms. I connect business requirements, product workflows, stakeholder needs,
+            and operational execution to help teams deliver cleaner systems and better user experiences.</p>
           <div class="hero-actions rv d3">
-            <button class="btn-fill" onclick="go('contact')">Get in touch</button>
-            <button class="btn-line" onclick="go('projects')">View projects</button>
+            <button class="btn-fill" onclick="go('experience')">See experience</button>
+            <button class="btn-line" onclick="go('contact')">Contact me</button>
           </div>
 
           <div class="hero-panel rv d2">
             <div class="panel-bar">
 
-              <span class="panel-label">Overview</span>
+              <span class="panel-label">Recruiter Snapshot</span>
               <div class="panel-dots">
                 <div class="pdot" style="background:#e05c5c"></div>
                 <div class="pdot" style="background:#e0c05c;margin-left:5px;"></div>
@@ -2407,13 +2485,10 @@
             <div class="panel-footer">
               <div class="pf-label">Core stack</div>
               <div class="tag-row">
-                <span class="tag">Project Management</span><span class="tag">Jira</span>
-                <span class="tag">Excel, Power BI & Data Analysis</span>
-                <span class="tag">Team Coordination and Process Optimization</span>
-                <span class="tag">Cross-functional Collaboration</span><span class="tag">Agile</span>
-                <span class="tag">Talent Sourcing & Recruitment Coordination</span>
-                <span class="tag">Stakeholder Communication & Operations Management</span>
-                <span class="tag">People Management</span>
+                <span class="tag">Business Analysis</span><span class="tag">SRS &amp; RTM</span>
+                <span class="tag">Agile Delivery</span><span class="tag">OTA &amp; ERP Workflows</span>
+                <span class="tag">Operations Management</span><span class="tag">Stakeholder Communication</span>
+                <span class="tag">People Coordination</span><span class="tag">Excel · Power BI · Jira</span>
               </div>
             </div>
           </div>
@@ -2425,9 +2500,38 @@
       </div>
     </section>
 
-    <section class="section rv" id="experience">
+    <section class="section rv" id="value">
       <div class="sec-header">
         <span class="sec-num">01</span>
+        <h2 class="sec-title">What I Bring</h2>
+        <div class="sec-divider"></div>
+      </div>
+      <div class="value-grid">
+        <div class="value-card">
+          <div class="value-kicker">Business Analysis</div>
+          <div class="value-title">Turning requirements into delivery clarity</div>
+          <p class="value-text">Experienced in preparing SRS, RTM, workflow mapping, and UI/UX documentation so developers, QA, and stakeholders stay aligned from planning to handover.</p>
+          <span class="value-highlight">SRS · RTM · Figma · Jira</span>
+        </div>
+        <div class="value-card">
+          <div class="value-kicker">Product &amp; Operations</div>
+          <div class="value-title">Balancing users, process, and execution</div>
+          <p class="value-text">Worked across OTA, ERP, EdTech, and HealthTech environments, combining product thinking with operational ownership to improve user experience and team efficiency.</p>
+          <span class="value-highlight">ERP · OTA · EdTech · HealthTech</span>
+        </div>
+        <div class="value-card">
+          <div class="value-kicker">People Coordination</div>
+          <div class="value-title">Managing teams, clients, and communication</div>
+          <p class="value-text">Coordinated students, instructors, teaching assistants, developers, and business stakeholders with clear communication, structured follow-up, and ownership mindset.</p>
+          <span class="value-highlight">2K+ students · 30+ instructors</span>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section rv" id="experience">
+      <div class="sec-header">
+        <span class="sec-num">02</span>
         <h2 class="sec-title">Experience</h2>
         <div class="sec-divider"></div>
       </div>
@@ -2435,23 +2539,16 @@
         <div class="exp-item">
           <img src="images/technonext-logo.png" alt="TechnoNext" class="company-logo-img" />
           <div class="exp-meta">
-            <div class="exp-period">Sep 2025 - March 2026</div>
-            <span class="exp-badge badge-active">Current</span>
+            <div class="exp-period">Sep 2025 - Mar 2026</div>
+            <span class="exp-badge badge-past">Business Analysis</span>
           </div>
           <div class="exp-body">
             <div class="exp-role">Business Analyst</div>
             <div class="exp-company">TechnoNext - US-Bangla Group · Dhaka</div>
             <ul class="exp-points">
-              <li>
-                Analyzed business requirements, prepared SRS and documentation for ERP and 5 OTA platforms across B2B
-                and
-                B2C channels, ensuring clear documentation and structured Project Management.
-              </li>
-              <li>Used Figma and Lovable for UI flows, Excel for configuration mapping and RTM, Jira and PMS for task
-                tracking and
-                project workflows</li>
-              <li>Bridged business and technical teams through stakeholder meetings, QA handover documentation, and
-                Agile sprint collaboration</li>
+              <li>Translated complex business requirements into clear SRS, RTM, and functional documentation for ERP and 5 OTA platforms across B2B and B2C channels.</li>
+              <li>Created UI/UX workflows with Figma and Lovable, supported configuration mapping in Excel, and tracked delivery through Jira and project management workflows.</li>
+              <li>Connected stakeholders, developers, and QA teams through sprint planning, requirement clarification, handover documentation, and Agile collaboration.</li>
             </ul>
           </div>
         </div>
@@ -2459,18 +2556,15 @@
           <img src="images/ostad-logo.png" alt="Ostad" class="company-logo-img" />
           <div class="exp-meta">
             <div class="exp-period">July 2024 - Aug 2025</div>
-            <span class="exp-badge badge-past">Previous</span>
+            <span class="exp-badge badge-past">Operations</span>
           </div>
           <div class="exp-body">
-            <div class="exp-role">ClientOperations &amp; Business Executive</div>
+            <div class="exp-role">Client Operations &amp; Business Executive</div>
             <div class="exp-company">Ostad Ltd · Dhaka</div>
             <ul class="exp-points">
-              <li>Managed operations for 2000+ students and coordinated 30+ teachers, driving measurable improvements in
-                learning efficiency</li>
-              <li>Recruited and onboarded 10+ Teaching Assistants through end-to-end sourcing, screening, and interview
-                coordination</li>
-              <li>Enhanced quality and engagement through strategic process improvements and structured people
-                management practices</li>
+              <li>Managed learning operations for 2,000+ students and coordinated 30+ instructors to improve engagement, service quality, and day-to-day delivery.</li>
+              <li>Handled end-to-end recruitment and onboarding for 10+ Teaching Assistants, including sourcing, screening, interview coordination, and joining support.</li>
+              <li>Improved operational consistency through structured follow-up, process documentation, client communication, and people management practices.</li>
             </ul>
           </div>
         </div>
@@ -2478,14 +2572,13 @@
           <img src="images/square-logo.png" alt="SQUARE Health" class="company-logo-img" />
           <div class="exp-meta">
             <!-- <div class="exp-period">Oct 2024 -Dec 2024</div> -->
-            <span class="exp-badge badge-past">Previous</span>
+            <span class="exp-badge badge-past">Internship</span>
           </div>
           <div class="exp-body">
             <div class="exp-role">Software Engineer Intern</div>
             <div class="exp-company">SQUARE Health Ltd · Dhaka</div>
             <ul class="exp-points">
-              <li>Implemented multiple features for a health-tech platform serving SQUARE GROUP's healthcare division,
-                contributing to production-grade software delivery</li>
+              <li>Contributed to feature implementation for a health-tech platform serving SQUARE GROUP's healthcare division, gaining hands-on exposure to production-grade software delivery.</li>
             </ul>
           </div>
         </div>
@@ -2494,8 +2587,8 @@
 
     <section class="section rv" id="extra-curricular">
       <div class="sec-header">
-        <span class="sec-num">04A</span>
-        <h2 class="sec-title">Extra Curricular Activities</h2>
+        <span class="sec-num">03</span>
+        <h2 class="sec-title">Leadership &amp; Activities</h2>
         <div class="sec-divider"></div>
       </div>
       <div class="exp-grid">
@@ -2508,7 +2601,7 @@
             <div class="exp-role">Sub-Executive</div>
             <div class="exp-company">AUST Programming and Informatics Club</div>
             <ul class="exp-points">
-              <li>Managed teams and facilitated knowledge-sharing sessions for the programming community.</li>
+              <li>Coordinated club activities, supported team management, and facilitated knowledge-sharing sessions for the university programming community.</li>
             </ul>
           </div>
         </div>
@@ -2521,7 +2614,7 @@
             <div class="exp-role">Campus Ambassador</div>
             <div class="exp-company">Programming Hero</div>
             <ul class="exp-points">
-              <li>Built relationships with students and faculty to promote programming education.</li>
+              <li>Promoted programming education by building relationships with students and faculty and supporting campus-level outreach for Programming Hero.</li>
             </ul>
           </div>
         </div>
@@ -2534,7 +2627,7 @@
             <div class="exp-role">University Ambassador</div>
             <div class="exp-company">ICT Olympiad Bangladesh</div>
             <ul class="exp-points">
-              <li>Represented the university at national ICT competitions and outreach programs.</li>
+              <li>Represented the university in national ICT-focused outreach programs and helped encourage student participation in technology competitions.</li>
             </ul>
           </div>
         </div>
@@ -2545,7 +2638,7 @@
 
     <section class="section rv" id="projects">
       <div class="sec-header">
-        <span class="sec-num">02</span>
+        <span class="sec-num">04</span>
         <h2 class="sec-title">Projects</h2>
         <div class="sec-divider"></div>
       </div>
@@ -2555,9 +2648,7 @@
             <div class="proj-num">01</div>
             <div>
               <div class="proj-name">PharmaSight-Map</div>
-              <div class="proj-desc">Interactive map displaying medicine details and real-time pricing via API
-                integration
-                for accessible pharmaceutical discovery.</div>
+              <div class="proj-desc">Interactive geospatial medicine discovery platform using district-wise mapping, price tracking, and API-based data presentation for easier pharmaceutical access.</div>
               <div class="proj-tags"><span class="proj-tag">Angular 18</span><span
                   class="proj-tag">TypeScript</span><span class="proj-tag">Bootstrap</span><span class="proj-tag">REST
                   API</span></div>
@@ -2570,9 +2661,7 @@
             <div class="proj-num">02</div>
             <div>
               <div class="proj-name">Wheel on the GO - RentBuddy</div>
-              <div class="proj-desc">Full-stack vehicle rental platform with booking management, user authentication,
-                and
-                complete rental workflow.</div>
+              <div class="proj-desc">Full-stack vehicle rental platform with dynamic availability, user booking management, authentication, and a complete rental workflow.</div>
               <div class="proj-tags"><span class="proj-tag">JavaScript</span><span class="proj-tag">C#</span><span
                   class="proj-tag">ASP.NET MVC</span><span class="proj-tag">MSSQL</span></div>
             </div>
@@ -2584,9 +2673,7 @@
             <div class="proj-num">03</div>
             <div>
               <div class="proj-name">Medcure</div>
-              <div class="proj-desc">Pharmacy management system for inventory control, sales tracking, and
-                operational
-                reporting.</div>
+              <div class="proj-desc">Pharmacy management system for inventory control, sales tracking, automated reporting, and smoother day-to-day pharmacy operations.</div>
               <div class="proj-tags"><span class="proj-tag">Java</span><span class="proj-tag">Microsoft SQL</span>
               </div>
             </div>
@@ -2598,7 +2685,7 @@
 
     <section class="section rv" id="skills">
       <div class="sec-header">
-        <span class="sec-num">03</span>
+        <span class="sec-num">05</span>
         <h2 class="sec-title">Skills &amp; Tools</h2>
         <div class="sec-divider"></div>
       </div>
@@ -2660,7 +2747,7 @@
 
     <section class="section rv" id="research">
       <div class="sec-header">
-        <span class="sec-num">04</span>
+        <span class="sec-num">06</span>
         <h2 class="sec-title">Research &amp; Publications</h2>
         <div class="sec-divider"></div>
       </div>
@@ -2689,7 +2776,7 @@
 
     <section class="section rv" id="education">
       <div class="sec-header">
-        <span class="sec-num">05</span>
+        <span class="sec-num">07</span>
         <h2 class="sec-title">Education</h2>
         <div class="sec-divider"></div>
       </div>
@@ -2697,11 +2784,10 @@
         <div class="edu-row">
           <div class="edu-year">2025 - Ongoing</div>
           <div>
-            <div class="edu-degree">M.Sc. in Information and Cyber Security</div>
+            <div class="edu-degree">M.Sc. in Computer Science and Engineering</div>
             <div class="edu-school">University of Dhaka</div>
           </div>
           <div class="edu-grade">3.56 / 4.00</div>
-          <div class="edu-school">In progress</div>
         </div>
         <div class="edu-row">
           <div class="edu-year">2020 - 2024</div>
@@ -2732,25 +2818,18 @@
 
     <section class="section rv" id="contact">
       <div class="sec-header">
-        <span class="sec-num">06</span>
+        <span class="sec-num">08</span>
         <h2 class="sec-title">Get in Touch</h2>
         <div class="sec-divider"></div>
       </div>
       <div class="contact-layout">
         <div>
-          <div class="contact-headline">Let's build something <em>meaningful</em> together.</div>
-          <p class="contact-sub">Open to opportunities in <em><b>Product, Business and Management roles</b></em>- such
-            as "Associate
-            Product Manager, Associate Project Manager, Product Analyst,
-            Business Analyst, Senior
-            Executive,
-            and People Management" roles. Based in Dhaka, Bangladesh. Open to Full time, remote and hybrid arrangements.
+          <div class="contact-headline">Looking for a role where business, product, and execution meet.</div>
+          <p class="contact-sub">Open to opportunities in <em><b>Product, Business Analysis, Project Coordination, Operations, and People Management roles</b></em> — including Associate Product Manager, Associate Project Manager, Product Analyst, Technical Business Analyst, Senior Executive, and related roles. Based in Dhaka, Bangladesh. Open to full-time, remote, and hybrid arrangements.
           </p>
           <div class="contact-note">
             <strong>Open to work</strong>
-            Actively seeking opportunities where I can utilize my expertise in business analysis, product thinking,
-            and
-            people management to drive meaningful impact.
+            Actively seeking a role where I can use business analysis, product thinking, stakeholder communication, and operational ownership to create measurable team and customer impact.
           </div>
         </div>
         <div>
@@ -2796,7 +2875,7 @@
         <span class="avail-pulse2"></span>
         Currently available for opportunities
       </div>
-      <div class="avail-heading">Open to the <em>right opportunity</em></div>
+      <div class="avail-heading">Ready to support <em>product, business, and operations teams</em></div>
       <div class="avail-roles">
         <span class="avail-role">Associate Product Manager</span>
         <span class="avail-role">Associate Project Manager</span>
